@@ -1,0 +1,4 @@
+This project is written in Python using the Flask web framework. We utilize three python files to create a 3-tier architecture.
+
+Models are stored in model.py. There are two classes in this file, Row and IOWriter. Row is a representation of a history
+record in our CSV, where our data is being stored.  x

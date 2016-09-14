@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<a href="/index">Home</a>
+<h3>Input Values</h3>
+<form method="post" action="/submit">
+    <label for="amount">Investment Amount: </label><input name="amount" id="amount" type="text"><br>
+    <label for="years">Number of Years: </label><input name="years" id="years" type="text"><br>
+    <label for="interest"></label>Annual Interest Rate: <input name="interest" id="interest" type="text"><br>
+    <label for="value"></label>Future Value: <input name="value" id="value" type="text" value="Test" readonly><br>
+    <button type="button" id="calc_button">Calculate</button>
+
+</form>
+    <script type="text/javascript">
+        $("#calc_button").click(function(){
+            $.ajax({url: "/test", data:{"amount": $("#amount").val(), "years": $("#years").val(), "interest":$("#interest").val()}, success: function(result){
+                $("#value").val(JSON.parse(result)['value'])
+            }})
+        });
+
+
+
+    </script>
+</body>
+</html>
